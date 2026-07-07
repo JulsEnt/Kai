@@ -1,34 +1,32 @@
-# ChoirX Lite Backend for Render
+# ChoirX AudibleFix Backend
 
-Low-memory Render backend for ChoirX. This version uses ffmpeg only. It does not use numpy or large in-memory audio arrays.
+Deploy this folder on Render as a Docker web service.
 
-## Render settings
+Render settings if this is inside a full repo:
 
-If this backend is inside a full repo:
+```text
+Environment: Docker
+Root Directory: backend
+Dockerfile Path: Dockerfile
+Health Check Path: /api/health
+```
 
-- Environment: Docker
-- Root Directory: backend
-- Dockerfile Path: Dockerfile
-- Health Check Path: /api/health
-
-If this backend is the whole repo, leave Root Directory blank.
-
-## Environment variables
+Environment variables:
 
 ```text
 CORS_ORIGINS=*
-MAX_UPLOAD_MB=8
-MAX_AUDIO_SECONDS=75
+MAX_UPLOAD_MB=12
+MAX_AUDIO_SECONDS=90
 ```
 
-After deploy, open:
+After deploy, test:
 
 ```text
-https://your-service.onrender.com/api/health
+https://your-render-url.onrender.com/api/health
 ```
 
-You should see:
+It should show:
 
 ```text
-mode: ffmpeg-lite-no-numpy-low-memory
+mode: audible-choir-harmony-ffmpeg
 ```

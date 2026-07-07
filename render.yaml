@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: choirx-lite-api
+    name: choirx-audiblefix-api
     env: docker
     plan: free
     healthCheckPath: /api/health
@@ -8,6 +8,6 @@ services:
       - key: CORS_ORIGINS
         value: "*"
       - key: MAX_UPLOAD_MB
-        value: "8"
+        value: "12"
       - key: MAX_AUDIO_SECONDS
-        value: "75"
+        value: "90"
