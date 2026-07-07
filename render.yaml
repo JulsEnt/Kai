@@ -1,15 +1,13 @@
 services:
   - type: web
-    name: choirx-memoryfix-backend
+    name: choirx-lite-api
     env: docker
     plan: free
     healthCheckPath: /api/health
     envVars:
-      - key: MAX_UPLOAD_MB
-        value: 8
-      - key: MAX_AUDIO_SECONDS
-        value: 75
       - key: CORS_ORIGINS
-        value: '*'
-      - key: OUTPUT_FORMAT
-        value: wav
+        value: "*"
+      - key: MAX_UPLOAD_MB
+        value: "8"
+      - key: MAX_AUDIO_SECONDS
+        value: "75"
