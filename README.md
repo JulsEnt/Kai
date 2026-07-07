@@ -1,8 +1,8 @@
-# ChoirX AudibleFix Backend
+# ChoirX LongFix Backend
 
-Deploy this folder on Render as a Docker web service.
+Deploy this `backend` folder to Render.
 
-Render settings if this is inside a full repo:
+Render settings if using the full repo:
 
 ```text
 Environment: Docker
@@ -15,18 +15,14 @@ Environment variables:
 
 ```text
 CORS_ORIGINS=*
-MAX_UPLOAD_MB=12
-MAX_AUDIO_SECONDS=90
+MAX_UPLOAD_MB=25
+MAX_AUDIO_SECONDS=240
 ```
 
-After deploy, test:
+This version no longer rejects a full song just because it is longer than 90 seconds. It auto-processes only the selected duration, up to `MAX_AUDIO_SECONDS`.
+
+Health check should show:
 
 ```text
-https://your-render-url.onrender.com/api/health
-```
-
-It should show:
-
-```text
-mode: audible-choir-harmony-ffmpeg
+mode: longfix-auto-trim-audible-choir-ffmpeg
 ```
